@@ -1,0 +1,22 @@
+{
+  "name": "homework9-nodehangman",
+  "version": "1.0.0",
+  "description": "A hangman command-line game using constructor functions. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tacrawford91/constructor-Hangman.git"
+  },
+  "author": "Troy A. Crawford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tacrawford91/constructor-Hangman/issues"
+  },
+  "homepage": "https://github.com/tacrawford91/constructor-Hangman#readme",
+  "dependencies": {
+    "inquirer": "^5.1.0"
+  }
+}
