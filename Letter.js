@@ -21,26 +21,3 @@ function Letter (char)  {
 }
 
 module.exports = Letter;
-
-// var l = new Letter("l");
-// console.log(l)
-
-// function playGame() {
-//     inquirer.prompt(
-//         {
-//             type: "input",
-//             name: "userGuess",
-//             message: "Guess a Letter: "
-//         }
-//     ).then(function(answer) {
-//     var userGuess = answer.userGuess
-//     l.check(userGuess);
-//     if (l.letterGuessed === false) {
-//         console.log("user guess was" + userGuess)
-//         console.log("THe character is" + l.char)
-//         playGame()
-//     } 
-
-//     })
-// }
-// playGame()
