@@ -2,8 +2,8 @@ const inquirer = require("inquirer");
 const wordJS = require("./Word.js");
 
 
-var indexTurns = 7;
-var wordList = ["jurassic","scott", "smells", "desk top", "boiler maker"];
+var indexTurns = 6;
+var wordList = ["jurassic","scott", "smells", "laptops", "boilermaker", "northwestern","javascript","hacker"];
 var wordCounter = Math.floor(Math.random()*wordList.length);
 var currentLevel = new wordJS.Word(wordList[wordCounter]);
 //store guessed letters
@@ -14,7 +14,7 @@ var firstGame = false;
 
 function playGame() {
     //show display for firt time 
-    if(indexTurns === 7 && firstGame === false) {
+    if(indexTurns === 6 && firstGame === false) {
         console.log("LETS PLAY NODE HANGMAN!");
         currentLevel.displayWord();
         firstGame = true;
@@ -27,7 +27,7 @@ function playGame() {
         }
     ).then(function(answer) {
         //stpre users guess
-    var userGuess = answer.userGuess;
+    var userGuess = answer.userGuess.toLowerCase();;
     var indexCheckArray = wordJS.checkArray;
     //check to see if the letter has been guessed if not store if it has send message and replay turn
         if (lettersGuessed.includes(userGuess)) {
@@ -71,19 +71,18 @@ function gameScoreLogic() {
         playGame()
     }
     if (indexTurns> 0 && correctLetters.length === currentLevel.secretWord.length) {
-        console.log("winner winner chicken dinner. Next word Generated. Good Luck");
-                
         //remove last word from word array
         wordList.splice(wordCounter,1);
         if (wordList.length === 0) {
             console.log("Congrats! You beat the entire game. Have a drink. You deserve it!"); 
             return
-        }
+        } else {
+        console.log("winner winner chicken dinner. Next word Generated. Good Luck");
         wordCounter = Math.floor(Math.random()*wordList.length);
         //generate new word
         currentLevel = new wordJS.Word(wordList[wordCounter]);
         //reset turns
-        indexTurns = 8;
+        indexTurns = 6;
         // empty check array
         correctLetters = [];
         // empty letters Guessed
@@ -91,9 +90,10 @@ function gameScoreLogic() {
         //playGame
         currentLevel.displayWord();
         playGame();
+        }
     }
     if (indexTurns === 0 && correctLetters.length !== currentLevel.secretWord.length) {
-        console.log("loser loser, youre a loser");
+        console.log("shucks, you lost. Don't Give up!");
 
     }
 }
